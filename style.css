@@ -1,0 +1,310 @@
+:root {
+  --font-main-color: #fff;
+  --hover-color: #0083fc;
+  --button-color: #e8223a;
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --background-main-color: #1d2348;
+  --background-modal-color: rgba(0, 0, 0, 0.9);
+  --background-message-color: #252525;
+  --background-game-color: #505b87;
+  --background-cell-color: #080c2c;
+  --hover-cell-color: #06081e;
+  --cross-color: #e8223a;
+  --zero-color: #0083fc;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100vh;
+  background-color: var(--background-main-color);
+  color: var(--font-main-color);
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  line-height: 1.4;
+  background: linear-gradient(var(--background-main-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--background-main-color) 1px, transparent 1px), var(--background-message-color);
+  background-size: 6px 6px;
+}
+
+.overflow {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon {
+  fill: var(--font-main-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.icon:hover {
+  fill: var(--hover-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+  color: var(--font-main-color);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--hover-color);
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.btn {
+  margin: 0 15px;
+  padding: 10px 40px;
+  font-size: 28px;
+  border: 0;
+  border-radius: 30px;
+  color: var(--font-main-color);
+  background-color: var(--button-color);
+  outline: none;
+  transition: 0.2s;
+}
+
+.btn:hover {
+  box-shadow: 0 0 10px var(--button-color), 0 0 10px var(--button-color), 0 0 10px var(--button-color);
+}
+
+/* ===================================== HEADER ============================== */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1,
+.score {
+  margin-top: 30px;
+  text-shadow: 0 0 5px var(--font-main-color), 0 0 1px var(--font-main-color), 0 0 1px var(--font-main-color),
+    0 0 1px var(--background-game-color), 0 0 25px var(--background-game-color), 0 0 25px var(--background-game-color),
+    0 0 25px var(--background-game-color), 0 0 15px var(--background-game-color);
+}
+
+.score {
+  font-size: 30px;
+}
+
+.btn-stat {
+  display: block;
+  margin-top: 30px;
+  padding: 10px 15px;
+  font-size: 24px;
+  letter-spacing: 1.3px;
+  border-radius: 5px;
+  text-shadow: 0 0 3px var(--font-main-color), 0 0 5px var(--font-main-color), 0 0 0 var(--font-main-color);
+  box-shadow: 0 0 5px var(--background-game-color), 0 0 1px var(--background-game-color),
+    0 0 1px var(--background-game-color), 0 0 1px var(--background-game-color), 0 0 15px var(--background-game-color),
+    0 0 15px var(--background-game-color);
+  background-color: var(--background-game-color);
+  transition: 0.3s;
+}
+
+.btn-stat:hover {
+  text-shadow: none;
+  box-shadow: none;
+}
+
+.icon-sound {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.symbol-x {
+  text-shadow: 0 0 5px var(--font-main-color), 0 0 1px var(--font-main-color), 0 0 1px var(--font-main-color),
+    0 0 1px var(--cross-color), 0 0 25px var(--cross-color), 0 0 25px var(--cross-color), 0 0 25px var(--cross-color),
+    0 0 15px var(--cross-color);
+}
+
+.symbol-o {
+  text-shadow: 0 0 5px var(--font-main-color), 0 0 1px var(--font-main-color), 0 0 1px var(--font-main-color),
+    0 0 1px var(--zero-color), 0 0 25px var(--zero-color), 0 0 25px var(--zero-color), 0 0 25px var(--zero-color),
+    0 0 15px var(--zero-color);
+}
+
+/* ===================================== MAIN ============================== */
+.area {
+  margin-top: 30px;
+  width: 598px;
+  height: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  border-radius: 5px;
+  background-color: var(--background-game-color);
+  box-shadow: 0px 0px 5px var(--background-game-color);
+}
+
+.cell {
+  width: 196px;
+  height: 196px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 130px;
+  border-radius: 5px;
+  background-color: var(--background-cell-color);
+  cursor: url("./assets/img/aim.png"), auto;
+  transition: 0.3s;
+}
+
+.cell:hover {
+  background-color: var(--hover-cell-color);
+}
+
+.cross {
+  text-shadow: 0 0 5px var(--font-main-color), 0 0 10px var(--font-main-color), 0 0 20px var(--font-main-color),
+    0 0 40px var(--cross-color), 0 0 80px var(--cross-color), 0 0 90px var(--cross-color), 0 0 100px var(--cross-color),
+    0 0 150px var(--cross-color);
+}
+
+.zero {
+  text-shadow: 0 0 5px var(--font-main-color), 0 0 10px var(--font-main-color), 0 0 20px var(--font-main-color),
+    0 0 40px var(--zero-color), 0 0 80px var(--zero-color), 0 0 90px var(--zero-color), 0 0 100px var(--zero-color),
+    0 0 150px var(--zero-color);
+}
+
+/* ===================================== FOOTER ============================== */
+
+footer {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.footer {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.copyright__item {
+  padding-right: 15px;
+}
+
+.icon-rss {
+  width: 115px;
+  height: 40px;
+}
+
+/* ===================================== MODAL ============================== */
+.modal {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-modal-color);
+}
+
+.modal-message {
+  position: relative;
+  max-width: 800px;
+  width: 90%;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 30px 10px;
+  align-items: center;
+  background-color: var(--background-message-color);
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--background-message-color), 0 0 5px var(--background-message-color),
+    0 0 5px var(--background-message-color);
+}
+
+.icon-close {
+  display: inline-block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 20px;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.message-text {
+  font-size: 30px;
+  text-align: center;
+}
+
+.start-btns,
+.restart-btns,
+.stat-info,
+.stat-info-main {
+  margin-top: 30px;
+}
+
+.stat-info {
+  text-align: center;
+}
+
+.stat-table,
+.stat-table-main,
+.stat-info-main {
+  margin-bottom: 30px;
+  text-align: left;
+  list-style: none;
+}
+
+.game-item {
+  display: flex;
+  background-color: var(--shadow-color);
+  border-radius: 5px;
+  padding: 15px 10px;
+  margin: 5px 0;
+}
+
+.game-item-num {
+  width: 140px;
+}
+
+.game-item-winner,
+.game-item-score {
+  width: 300px;
+}
+
+.btn-start {
+  font-size: 50px;
+}
+
+.hidden {
+  display: none;
+}

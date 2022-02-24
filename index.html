@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tic-tac-toe</title>
+  <link href="assets/img/favicon.ico" rel="icon" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css">
+  <script src="index.js" type="module"></script>
+</head>
+
+<body>
+  <div class="overflow">
+    <header class="header">
+      <img class="icon-sound" src="assets/img/volume.png" width="40" alt="sound">
+      <h1>Крестики-нолики</h1>
+      <p class="score"><span class="symbol-x">Score X</span>: <span class="score-x">0</span> |
+        <span class="symbol-o">Score O</span>: <span class="score-o"></span>
+      </p>
+      <button class="btn btn-stat">Статистика игр</button>
+    </header>
+
+    <main>
+      <div class="area">
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+      </div>
+    </main>
+
+    <footer>
+      <section class="footer">
+        <div class="copyright">
+          <span class="copyright__item copyright__sign">©</span>
+          <span class="copyright__item copyright__year">2022</span>
+          <a class="copyright__item copyright__link" href="https://github.com/PesukarhuTG"
+            target="_blank">pesukarhutg</a>
+        </div>
+        <a class="logo-link" href="https://rs.school/js-stage0/" target="_blank">
+          <svg class="icon icon-rss">
+            <use xlink:href="assets/svg/sprite.svg#icon-rss"></use>
+          </svg>
+        </a>
+      </section>
+    </footer>
+
+  </div>
+
+  <div class="modal">
+    <div class="modal-message">
+      <p class="message-text">Выберите фигуру:</p>
+
+      <!-- start modal -->
+      <div class="start-btns">
+        <button class="btn btn-start btn-x">X</button>
+        <button class="btn btn-start btn-o">O</button>
+      </div>
+
+      <!-- continue modal -->
+      <div class="restart-btns hidden">
+        <button class="btn btn-restar">Продолжить</button>
+        <button class="btn btn-list">Статистика</button>
+      </div>
+
+      <!-- stat modal (during the game)-->
+      <div class="stat-info hidden">
+        <ul class="stat-table">
+          <!-- <li class="game-item">
+            <div class="game-item-num">Игра: <span class="game-num">1</span></div>
+            <div class="game-item-winner">Победили: <span class="game-win">Крестики</span></div>
+            <div class="game-item-score">Количество шагов: <span class="game-steps">5</span></div>
+          </li> -->
+        </ul>
+        <button class="btn btn-continue">Продолжить игру</button>
+      </div>
+
+      <!-- stat modal (from main screen)-->
+      <div class="stat-info-main hidden">
+        <span class="icon-close">X</span>
+        <ul class="stat-table-main">
+          <!-- <li class="game-item">
+            <div class="game-item-num">Игра: <span class="game-num">1</span></div>
+            <div class="game-item-winner">Победили: <span class="game-win">Крестики</span></div>
+            <div class="game-item-score">Количество шагов: <span class="game-steps">5</span></div>
+          </li> -->
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</body>
+
+</html>
